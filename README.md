@@ -57,7 +57,7 @@ const stripe = Stripe('pk_test_YOUR_ACTUAL_STRIPE_KEY');
 Press: `Ctrl + Shift + A` to open admin panel
 
 **Default Login:**
-- Password: `demo123`
+- Password: `demo123@`
 
 Change password in `admin.js` line 8
 
