@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Профессионални уеб услуги - Проектиране и разработка на сайтове, онлайн магазини, Minecraft сървър сайтове, и персонализирани системи.">
-    <meta name="keywords" content="уеб разработка, сайтове, уеб дизайн, онлайн магазин, Minecraft, България">
-    <meta name="author" content="Продавателникът на Митко">
-    <meta name="theme-color" content="#0f172a">
-    <title>Продавателникът на Митко | Професионални Уеб Услуги</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230f172a' width='100' height='100'/><text x='50' y='70' font-size='60' fill='%2306b6d4' font-weight='bold' text-anchor='middle' font-family='Arial'>М</text></svg>">
+    <meta name="description" content="Професионални уеб услуги - Minecraft сайтове, онлайн магазини, бизнес сайтове със Stripe плащания.">
+    <meta name="keywords" content="Minecraft, онлайн магазин, бизнес сайт, България">
+    <meta name="theme-color" content="#0a0e27">
+    <title>Продавателникът На Митко | Уеб Решения</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <!-- Custom Cursor -->
@@ -23,20 +23,26 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon">М</span>
-                <span class="logo-text">Продавателникът</span>
-            </div>
+            <a href="#hero" class="nav-logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-main">ПРОДАВАТЕЛНИКЪТ</span>
+                    <span class="logo-sub">НА МИТКО</span>
+                </div>
+            </a>
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#hero" class="nav-link">Начало</a></li>
-                <li><a href="#about" class="nav-link">За мен</a></li>
-                <li><a href="#services" class="nav-link">Услуги</a></li>
-                <li><a href="#why" class="nav-link">Защо аз</a></li>
-                <li><a href="#portfolio" class="nav-link">Портфолио</a></li>
-                <li><a href="#reviews" class="nav-link">Отзиви</a></li>
-                <li><a href="#contact" class="nav-link">Контакт</a></li>
+                <li><a href="#hero" class="nav-link">НАЧАЛО</a></li>
+                <li><a href="#about" class="nav-link">ЗА МЕН</a></li>
+                <li><a href="#services" class="nav-link">УСЛУГИ</a></li>
+                <li><a href="#portfolio" class="nav-link">ПОРТФОЛИО</a></li>
+                <li><a href="#reviews" class="nav-link">ОТЗИВИ</a></li>
+                <li><a href="#contact" class="nav-link">КОНТАКТИ</a></li>
             </ul>
+
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                ПОРЪЧАЙ СЕГА →
+            </button>
 
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -49,64 +55,75 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <div class="loading-logo">М</div>
-            <div class="loading-text">Продавателникът на Митко</div>
+            <img src="logo.png" alt="Loading Logo" class="loading-logo">
+            <div class="loading-text">ПРОДАВАТЕЛНИКЪТ НА МИТКО</div>
             <div class="loading-bar">
                 <div class="loading-bar-progress"></div>
             </div>
         </div>
     </div>
 
-    <!-- Animated Background Blobs -->
-    <div class="background-blobs">
+    <!-- Background Elements -->
+    <div class="background-elements">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
+        <div class="glow-orb"></div>
     </div>
 
-    <!-- Floating Particles -->
+    <!-- Particles -->
     <div class="particles" id="particles"></div>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-label">ПРОФЕСИОНАЛНИ УЕБ РЕШЕНИЯ</p>
                 <h1 class="hero-title">
-                    <span class="title-word">Създавам</span>
-                    <span class="title-word">сайтове,</span>
-                    <span class="title-word">които</span>
-                    <span class="title-word">продават</span>
+                    <span class="title-main">СЪЗДАВАМ САЙТОВЕ,</span>
+                    <span class="title-accent">КОИТО НОСЯТ РЕЗУЛТАТИ</span>
                 </h1>
-                <p class="hero-subtitle">Модерни, бързи и отзивчиви уеб решения за вашия бизнес</p>
+                <p class="hero-description">
+                    Разработка на модерни, бързи и сигурни сайтове по поръчка. Minecraft сървъри, магазини и бизнес сайтове, от които имаш нужда онлайн.
+                </p>
+                
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-                        <span>Поръчай сайт</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 10h10M15 10l-3-3M15 10l-3 3"/>
-                        </svg>
+                    <button class="btn btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                        ПОРЪЧАЙ САЙТ →
                     </button>
                     <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
-                        <span>Разгледай услугите</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="10" cy="10" r="8"/>
-                            <path d="M10 7v6M7 10h6"/>
-                        </svg>
+                        ВИЖ УСЛУГИТЕ ↓
                     </button>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="card-code">
-                        <div class="code-line"><span class="code-tag">&lt;div&gt;</span> Магия</div>
-                        <div class="code-line"><span class="code-tag">&lt;p&gt;</span>质量</div>
-                        <div class="code-line"><span class="code-tag">&lt;button&gt;</span> Резултати</div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-text">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Завършени проекта</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">✓</div>
+                        <div class="stat-text">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Доволни клиенти</div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">🎧</div>
+                        <div class="stat-text">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Поддръжка</div>
+                        </div>
                     </div>
                 </div>
-                <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="floating-cube">
+                    <div class="cube-inner"></div>
                 </div>
             </div>
         </div>
@@ -114,73 +131,44 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <div class="section-header">
-            <h2 class="section-title">За мен</h2>
-            <p class="section-subtitle">Запознайте се с твореца зад вашия следващ проект</p>
-        </div>
-
-        <div class="about-content">
-            <div class="about-image-wrapper">
-                <div class="about-image-placeholder">
-                    <div class="placeholder-gradient"></div>
-                    <svg class="placeholder-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="60" r="35" stroke="url(#gradIcon)" stroke-width="2"/>
-                        <path d="M 70 110 Q 100 130 130 110" stroke="url(#gradIcon)" stroke-width="2" fill="none"/>
-                        <rect x="50" y="140" width="100" height="40" rx="5" stroke="url(#gradIcon)" stroke-width="2" fill="none"/>
-                        <defs>
-                            <linearGradient id="gradIcon" x1="0" y1="0" x2="200" y2="200">
-                                <stop offset="0%" stop-color="#06b6d4"/>
-                                <stop offset="100%" stop-color="#0891b2"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">За мен</h2>
             </div>
 
-            <div class="about-text">
-                <h3 class="about-title">Митко Владимиров</h3>
-                <p class="about-subtitle">Уеб разработчик & Дизайнер</p>
-                
-                <p class="about-paragraph">
-                    Аз съм Митко, разработчик със <strong>6+ години опит</strong> в създаването на професионални уеб решения. Моята страст е да превръщам идеи в красиви, функционални сайтове, които работят идеално и генерират резултати.
-                </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">Здравей! Аз съм <strong>Митко</strong>, разработчик със <strong>6+ години опит</strong> в създаването на професионални уеб решения.</p>
+                    
+                    <p>Специализирам се в разработка на:</p>
+                    <ul class="about-list">
+                        <li><strong>Minecraft сървър сайтове</strong> - с магазин, лидерборд и администраторски панел</li>
+                        <li><strong>Онлайн магазини</strong> - с Stripe плащания и управление на продукти</li>
+                        <li><strong>Бизнес сайтове</strong> - които генерират клиенти и резултати</li>
+                    </ul>
 
-                <p class="about-paragraph">
-                    Специализирам се в:
-                    <span class="highlight">custom разработка</span>,
-                    <span class="highlight">модерен дизайн</span> и
-                    <span class="highlight">отзивчиви решения</span>.
-                    Работил съм с десетки компании, от стартапи до установени бизнеси, създавайки всичко от Minecraft сървър сайтове до сложни админ панели.
-                </p>
+                    <p>Всеки проект е разработен със фокус на <span class="accent">качество, скорост и дизайн</span>. Използвам най-новите технологии и best practices, за да доставя сайтове, които работят идеално.</p>
 
-                <p class="about-paragraph">
-                    Вярвам, че всеки проект е уникален и заслужава персонализиран подход. Съчетавам последните технологии с креативност, за да доставя не просто сайтове, а инструменти за ръст.
-                </p>
-
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number" data-count="120">0</div>
-                        <div class="stat-label">Завършени проекти</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number" data-count="98">0</div>
-                        <div class="stat-label">Доволни клиенти</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number" data-count="6">0</div>
-                        <div class="stat-label">Години опит</div>
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Stripe API</span>
+                        <span class="tech-badge">PostgreSQL</span>
                     </div>
                 </div>
 
-                <div class="about-tech">
-                    <span class="tech-badge">HTML/CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">MongoDB</span>
-                    <span class="tech-badge">PHP</span>
-                    <span class="tech-badge">MySQL</span>
-                    <span class="tech-badge">WebSocket</span>
+                <div class="about-visual">
+                    <div class="neon-card">
+                        <div class="card-content">
+                            <div class="code-snippet">
+                                &lt;div&gt; Качество<br>
+                                &lt;span&gt; Решения<br>
+                                &lt;/&gt; Резултати
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,722 +176,299 @@
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <div class="section-header">
-            <h2 class="section-title">Мои услуги</h2>
-            <p class="section-subtitle">Пълният спектър на уеб решения за вашия бизнес</p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Service 1: Minecraft Website -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="15" height="15" fill="url(#grad1)"/>
-                        <rect x="40" y="20" width="15" height="15" fill="url(#grad2)"/>
-                        <rect x="60" y="20" width="15" height="15" fill="url(#grad3)"/>
-                        <rect x="20" y="40" width="15" height="15" fill="url(#grad2)"/>
-                        <rect x="40" y="40" width="15" height="15" fill="url(#grad1)"/>
-                        <rect x="60" y="40" width="15" height="15" fill="url(#grad2)"/>
-                        <rect x="20" y="60" width="15" height="15" fill="url(#grad3)"/>
-                        <rect x="40" y="60" width="15" height="15" fill="url(#grad2)"/>
-                        <rect x="60" y="60" width="15" height="15" fill="url(#grad1)"/>
-                        <defs>
-                            <linearGradient id="grad1"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad2"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                            <linearGradient id="grad3"><stop offset="0%" stop-color="#0e7490"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="service-title">Сайт за Minecraft сървър</h3>
-                <p class="service-description">Атрактивни сайтове за Minecraft сървърите с функции за регистрация, магазин, статистика на играчите и администраторски панел.</p>
-                <div class="service-features">
-                    <span class="feature">Регистрация & Профил</span>
-                    <span class="feature">Онлайн магазин</span>
-                    <span class="feature">Статистика</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>350лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">МОИТЕ УСЛУГИ</p>
+                <h2 class="section-title">КАКВО МОГА ДА НАПРАВЯ ЗА ТЕБ</h2>
             </div>
 
-            <!-- Service 2: Online Shop -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 30 L35 20 L65 20 L70 30" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
-                        <rect x="25" y="30" width="50" height="40" rx="3" stroke="url(#grad5)" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="8" fill="url(#grad4)"/>
-                        <circle cx="40" cy="60" r="3" fill="url(#grad5)"/>
-                        <circle cx="60" cy="60" r="3" fill="url(#grad5)"/>
-                        <defs>
-                            <linearGradient id="grad4"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad5"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
+            <div class="services-grid">
+                <!-- Service 1: Minecraft -->
+                <div class="service-card">
+                    <div class="card-glow"></div>
+                    <div class="service-icon minecraft-icon">
+                        <div class="pixelated">🎮</div>
+                    </div>
+                    <h3 class="service-title">Minecraft сайт</h3>
+                    <p class="service-desc">Уникален сайт за твоя Minecraft сървър. Магазин, профили, лидерборд, администраторски панел - всичко необходимо.</p>
+                    <div class="service-features">
+                        <span class="feature">✓ Магазин</span>
+                        <span class="feature">✓ Лидерборд</span>
+                        <span class="feature">✓ Админ панел</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price">от <strong>5€</strong></span>
+                        <button class="service-btn" onclick="openCheckout('minecraft', 5)">ПОРЪЧАЙ</button>
+                    </div>
                 </div>
-                <h3 class="service-title">Онлайн магазин</h3>
-                <p class="service-description">Пълнофункционални електронни магазини с интегриран платежен гейтуей, управление на продукти и интеграция със всички популярни платформи.</p>
-                <div class="service-features">
-                    <span class="feature">Платежни системи</span>
-                    <span class="feature">Управление запаси</span>
-                    <span class="feature">SEO оптимизирано</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>580лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
-                </div>
-            </div>
 
-            <!-- Service 3: Discord Community -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="35" cy="35" r="12" fill="url(#grad6)"/>
-                        <circle cx="65" cy="35" r="12" fill="url(#grad7)"/>
-                        <path d="M30 55 Q50 75 70 55" stroke="url(#grad6)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <circle cx="35" cy="35" r="5" fill="#0f172a"/>
-                        <circle cx="65" cy="35" r="5" fill="#0f172a"/>
-                        <defs>
-                            <linearGradient id="grad6"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad7"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
+                <!-- Service 2: E-Commerce -->
+                <div class="service-card">
+                    <div class="card-glow"></div>
+                    <div class="service-icon shop-icon">
+                        <div class="pixelated">🛍️</div>
+                    </div>
+                    <h3 class="service-title">Онлайн магазин</h3>
+                    <p class="service-desc">Пълнофункционален e-commerce магазин със Stripe плащания. Управление на продукти, поръчки и клиенти.</p>
+                    <div class="service-features">
+                        <span class="feature">✓ Stripe плащане</span>
+                        <span class="feature">✓ Управление</span>
+                        <span class="feature">✓ SEO готово</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price">от <strong>10€</strong></span>
+                        <button class="service-btn" onclick="openCheckout('shop', 10)">ПОРЪЧАЙ</button>
+                    </div>
                 </div>
-                <h3 class="service-title">Discord/Общностен сайт</h3>
-                <p class="service-description">Професионални сайтове за Discord сървъри и онлайн общности с интеграция със Discord API, управление на членове и социални функции.</p>
-                <div class="service-features">
-                    <span class="feature">Discord интеграция</span>
-                    <span class="feature">Общностни функции</span>
-                    <span class="feature">Управление роли</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>400лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
-                </div>
-            </div>
 
-            <!-- Service 4: Web Panel -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="15" y="15" width="70" height="70" rx="5" stroke="url(#grad8)" stroke-width="2"/>
-                        <rect x="20" y="20" width="60" height="10" fill="url(#grad9)" rx="2"/>
-                        <rect x="20" y="35" width="15" height="8" fill="url(#grad8)" rx="1"/>
-                        <rect x="40" y="35" width="15" height="8" fill="url(#grad8)" rx="1"/>
-                        <rect x="60" y="35" width="15" height="8" fill="url(#grad8)" rx="1"/>
-                        <rect x="20" y="48" width="15" height="8" fill="url(#grad9)" rx="1"/>
-                        <rect x="40" y="48" width="15" height="8" fill="url(#grad9)" rx="1"/>
-                        <rect x="60" y="48" width="15" height="8" fill="url(#grad9)" rx="1"/>
-                        <rect x="20" y="61" width="55" height="5" fill="url(#grad8)" rx="1"/>
-                        <defs>
-                            <linearGradient id="grad8"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad9"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="service-title">Уеб панел / Администратор</h3>
-                <p class="service-description">Мощни админ панели и управленски системи за контрол на всички аспекти на вашия бизнес - от потребители до данни.</p>
-                <div class="service-features">
-                    <span class="feature">Кастомен дизайн</span>
-                    <span class="feature">Потребителски роли</span>
-                    <span class="feature">Аналитика & Отчети</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>650лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
-                </div>
-            </div>
-
-            <!-- Service 5: Business Website -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="60" height="60" rx="8" stroke="url(#grad10)" stroke-width="2"/>
-                        <rect x="25" y="25" width="50" height="12" fill="url(#grad11)" rx="2"/>
-                        <rect x="25" y="42" width="22" height="30" fill="url(#grad10)" rx="2"/>
-                        <rect x="53" y="42" width="22" height="30" fill="url(#grad10)" rx="2"/>
-                        <defs>
-                            <linearGradient id="grad10"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad11"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="service-title">Бизнес сайт</h3>
-                <p class="service-description">Професионални корпоративни сайтове, портфолио и лендинг страници, оптимизирани за SEO и конверсии.</p>
-                <div class="service-features">
-                    <span class="feature">SEO оптимизирано</span>
-                    <span class="feature">Максимум конверсии</span>
-                    <span class="feature">Блог система</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>450лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
-                </div>
-            </div>
-
-            <!-- Service 6: Custom System -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="30" stroke="url(#grad12)" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="20" stroke="url(#grad13)" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="10" fill="url(#grad12)"/>
-                        <path d="M50 30 L50 20M70 50 L80 50M50 70 L50 80M30 50 L20 50" stroke="url(#grad13)" stroke-width="2" stroke-linecap="round"/>
-                        <defs>
-                            <linearGradient id="grad12"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                            <linearGradient id="grad13"><stop offset="0%" stop-color="#0891b2"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="service-title">Персонализирана система</h3>
-                <p class="service-description">Уникални софтуерни решения, специално разработени за вашите специфични нужди и бизнес процеси.</p>
-                <div class="service-features">
-                    <span class="feature">Пълна кастомизация</span>
-                    <span class="feature">Техническа поддръжка</span>
-                    <span class="feature">Интеграции</span>
-                </div>
-                <div class="service-footer">
-                    <span class="service-price">От <strong>750лв</strong></span>
-                    <button class="btn-small">Детайли →</button>
+                <!-- Service 3: Business Website -->
+                <div class="service-card">
+                    <div class="card-glow"></div>
+                    <div class="service-icon business-icon">
+                        <div class="pixelated">🌐</div>
+                    </div>
+                    <h3 class="service-title">Бизнес сайт</h3>
+                    <p class="service-desc">Професионален сайт за твоя бизнес. Портфолио, контакт форма, блог - разработен за конверсии и растеж.</p>
+                    <div class="service-features">
+                        <span class="feature">✓ Портфолио</span>
+                        <span class="feature">✓ Блог</span>
+                        <span class="feature">✓ Контакт</span>
+                    </div>
+                    <div class="service-footer">
+                        <span class="price">от <strong>20€</strong></span>
+                        <button class="service-btn" onclick="openCheckout('business', 20)">ПОРЪЧАЙ</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Me Section -->
-    <section id="why" class="why">
-        <div class="section-header">
-            <h2 class="section-title">Защо именно аз?</h2>
-            <p class="section-subtitle">Качество и результати, които говорят сами за себе си</p>
-        </div>
-
-        <div class="why-grid">
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 30 L25 40 L50 20" stroke="url(#gradWhy1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <defs>
-                            <linearGradient id="gradWhy1"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title centered">ЗАЩО ДА ИЗБЕРЕШ МЕН?</h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <h3>Бърза разработка</h3>
+                    <p>5-7 работни дни</p>
                 </div>
-                <h3 class="why-title">Бързо доставяне</h3>
-                <p class="why-text">Средно време за завършване е 5-7 работни дни за стандартни проекти, без компромис в качеството.</p>
-            </div>
-
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="30" cy="30" r="20" stroke="url(#gradWhy2)" stroke-width="2"/>
-                        <path d="M25 28 L28 32 L36 23" stroke="url(#gradWhy2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <defs>
-                            <linearGradient id="gradWhy2"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+                <div class="why-card">
+                    <div class="why-icon">🎨</div>
+                    <h3>Модерен дизайн</h3>
+                    <p>Спокойстващи визи</p>
                 </div>
-                <h3 class="why-title">Качество на първо място</h3>
-                <p class="why-text">Всеки код е тестван, оптимизиран и написан със следне практики на индустрията в ум.</p>
-            </div>
-
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="15" y="20" width="30" height="25" rx="3" stroke="url(#gradWhy3)" stroke-width="2"/>
-                        <path d="M20 27 H40M20 33 H40M20 39 H30" stroke="url(#gradWhy3)" stroke-width="1.5" stroke-linecap="round"/>
-                        <defs>
-                            <linearGradient id="gradWhy3"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+                <div class="why-card">
+                    <div class="why-icon">📱</div>
+                    <h3>Отзивчив</h3>
+                    <p>Всички устройства</p>
                 </div>
-                <h3 class="why-title">Модерен дизайн</h3>
-                <p class="why-text">Всеки проект е дизайниран с най-新 тенденции и най-добри практики за UX/UI в ум.</p>
-            </div>
-
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 12 L40 30 L30 48 L20 30 Z" stroke="url(#gradWhy4)" stroke-width="2"/>
-                        <circle cx="30" cy="30" r="6" fill="url(#gradWhy4)"/>
-                        <defs>
-                            <linearGradient id="gradWhy4"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+                <div class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <h3>Сигурност</h3>
+                    <p>SSL, HTTPS, защита</p>
                 </div>
-                <h3 class="why-title">Отзивчив дизайн</h3>
-                <p class="why-text">Работи идеално на всички устройства - мобилни, таблети и десктопи без никакви проблеми.</p>
-            </div>
-
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 15 C40 15 48 23 48 33 C48 43 30 50 30 50 C30 50 12 43 12 33 C12 23 20 15 30 15" stroke="url(#gradWhy5)" stroke-width="2" fill="none"/>
-                        <circle cx="30" cy="33" r="5" fill="url(#gradWhy5)"/>
-                        <defs>
-                            <linearGradient id="gradWhy5"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+                <div class="why-card">
+                    <div class="why-icon">⚙️</div>
+                    <h3>Оптимизация</h3>
+                    <p>Бързо зареждане</p>
                 </div>
-                <h3 class="why-title">Цялостна поддръжка</h3>
-                <p class="why-text">После завършване предоставям 3 месеца безплатна техническа поддръжка и редовни обновления.</p>
-            </div>
-
-            <div class="why-card">
-                <div class="why-icon">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="12" y="18" width="36" height="24" rx="2" stroke="url(#gradWhy6)" stroke-width="2"/>
-                        <path d="M20 28 L30 38 L40 25" stroke="url(#gradWhy6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <defs>
-                            <linearGradient id="gradWhy6"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        </defs>
-                    </svg>
+                <div class="why-card">
+                    <div class="why-icon">🎧</div>
+                    <h3>Поддръжка 24/7</h3>
+                    <p>Винаги готов</p>
                 </div>
-                <h3 class="why-title">Сигурност</h3>
-                <p class="why-text">SSL сертификат, защита от SQL инжекция, CSRF защита и всички съвременни сигурностни стандарти.</p>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <div class="section-header">
-            <h2 class="section-title">Портфолио</h2>
-            <p class="section-subtitle">Преглед на някои от моите най-добри проекти</p>
-        </div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">ПОРТФОЛИО</p>
+                <h2 class="section-title">МОИТЕ MINECRAFT СЪРВЪР САЙТОВЕ</h2>
+            </div>
 
-        <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all">Всички</button>
-            <button class="filter-btn" data-filter="minecraft">Minecraft</button>
-            <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-            <button class="filter-btn" data-filter="corporate">Корпоративни</button>
-            <button class="filter-btn" data-filter="discord">Discord</button>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-category="minecraft">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="40" y="40" width="30" height="30" fill="#06b6d4" opacity="0.8"/>
-                                <rect x="75" y="40" width="30" height="30" fill="#0891b2" opacity="0.8"/>
-                                <rect x="110" y="40" width="30" height="30" fill="#0e7490" opacity="0.8"/>
-                                <rect x="40" y="75" width="30" height="30" fill="#0891b2" opacity="0.8"/>
-                                <rect x="75" y="75" width="30" height="30" fill="#06b6d4" opacity="0.8"/>
-                                <rect x="110" y="75" width="30" height="30" fill="#0891b2" opacity="0.8"/>
-                                <text x="100" y="140" text-anchor="middle" fill="#06b6d4" font-size="16" font-weight="bold">CraftWorld Server</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">W</div>
+                    <h3>WinlineWorld</h3>
+                    <p>Minecraft сървър със магазин</p>
                 </div>
-                <h3 class="portfolio-title">CraftWorld Server</h3>
-                <p class="portfolio-category">Minecraft Сървър Сайт</p>
-                <p class="portfolio-description">Пълнофункционален сайт за Minecraft сървър с магазин, лидерборд и администраторски панел.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">React</span>
-                    <span class="tech">Node.js</span>
-                    <span class="tech">MongoDB</span>
+
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">L</div>
+                    <h3>LertWorld</h3>
+                    <p>Competitive gaming server</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">R</div>
+                    <h3>Raid World</h3>
+                    <p>Raid-based server</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">M</div>
+                    <h3>MartWorld</h3>
+                    <p>Marketplace server hub</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">S4</div>
+                    <h3>Sandwi4 SMP</h3>
+                    <p>Survival multiplayer</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="card-glow"></div>
+                    <div class="portfolio-logo">G</div>
+                    <h3>SugarSMP</h3>
+                    <p>Community survival</p>
                 </div>
             </div>
 
-            <div class="portfolio-item" data-category="ecommerce">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="60" cy="60" r="25" stroke="#06b6d4" stroke-width="2"/>
-                                <circle cx="140" cy="60" r="25" stroke="#0891b2" stroke-width="2"/>
-                                <circle cx="100" cy="120" r="25" stroke="#0e7490" stroke-width="2"/>
-                                <path d="M100 40 L140 100 L100 140 L60 100 Z" stroke="#06b6d4" stroke-width="2" fill="none"/>
-                                <text x="100" y="160" text-anchor="middle" fill="#06b6d4" font-size="16" font-weight="bold">Fashion Store</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
-                </div>
-                <h3 class="portfolio-title">Fashion Store</h3>
-                <p class="portfolio-category">Онлайн Магазин</p>
-                <p class="portfolio-description">Модерен онлайн магазин за мода със интегриран платеж и управление на инвентар.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">WooCommerce</span>
-                    <span class="tech">PHP</span>
-                    <span class="tech">MySQL</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-category="corporate">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="30" y="30" width="140" height="140" rx="10" stroke="#06b6d4" stroke-width="2"/>
-                                <rect x="45" y="45" width="110" height="25" fill="#06b6d4" opacity="0.6"/>
-                                <line x1="45" y1="85" x2="155" y2="85" stroke="#0891b2" stroke-width="2"/>
-                                <line x1="45" y1="100" x2="155" y2="100" stroke="#0891b2" stroke-width="2"/>
-                                <line x1="45" y1="115" x2="120" y2="115" stroke="#0891b2" stroke-width="2"/>
-                                <text x="100" y="155" text-anchor="middle" fill="#06b6d4" font-size="16" font-weight="bold">TechBiz Corp</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
-                </div>
-                <h3 class="portfolio-title">TechBiz Corp</h3>
-                <p class="portfolio-category">Корпоративен сайт</p>
-                <p class="portfolio-description">Професионален корпоративен сайт със блог, портфолио и интеграция с CRM.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">Next.js</span>
-                    <span class="tech">Tailwind</span>
-                    <span class="tech">Strapi CMS</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-category="discord">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="70" cy="70" r="20" stroke="#06b6d4" stroke-width="2"/>
-                                <circle cx="130" cy="70" r="20" stroke="#0891b2" stroke-width="2"/>
-                                <circle cx="70" cy="130" r="20" stroke="#0e7490" stroke-width="2"/>
-                                <circle cx="130" cy="130" r="20" stroke="#06b6d4" stroke-width="2"/>
-                                <text x="100" y="165" text-anchor="middle" fill="#06b6d4" font-size="16" font-weight="bold">Gaming Hub</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
-                </div>
-                <h3 class="portfolio-title">Gaming Hub</h3>
-                <p class="portfolio-category">Discord Общностен сайт</p>
-                <p class="portfolio-description">Интерактивен сайт за Discord сървър с управление на役, статистика и интеграция.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">Vue.js</span>
-                    <span class="tech">Discord.js</span>
-                    <span class="tech">Firebase</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-category="minecraft">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="50" y="50" width="20" height="20" fill="#06b6d4"/>
-                                <rect x="75" y="50" width="20" height="20" fill="#0891b2"/>
-                                <rect x="100" y="50" width="20" height="20" fill="#0e7490"/>
-                                <rect x="50" y="80" width="20" height="20" fill="#0891b2"/>
-                                <rect x="75" y="80" width="20" height="20" fill="#06b6d4"/>
-                                <rect x="100" y="80" width="20" height="20" fill="#0891b2"/>
-                                <text x="100" y="125" text-anchor="middle" fill="#06b6d4" font-size="14" font-weight="bold">SkyBlock World</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
-                </div>
-                <h3 class="portfolio-title">SkyBlock World</h3>
-                <p class="portfolio-category">Minecraft Сървър Сайт</p>
-                <p class="portfolio-description">Съвременен сайт за SkyBlock сървър с лидерборд, система за награди и магазин.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">React</span>
-                    <span class="tech">Express</span>
-                    <span class="tech">PostgreSQL</span>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-category="ecommerce">
-                <div class="portfolio-image">
-                    <div class="image-placeholder">
-                        <div class="placeholder-content">
-                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M60 50 L80 30 L120 30 L140 50 L130 90 Q100 110 70 90 Z" stroke="#06b6d4" stroke-width="2" fill="none"/>
-                                <line x1="70" y1="70" x2="130" y2="70" stroke="#0891b2" stroke-width="2"/>
-                                <circle cx="80" cy="80" r="3" fill="#06b6d4"/>
-                                <circle cx="120" cy="80" r="3" fill="#06b6d4"/>
-                                <text x="100" y="140" text-anchor="middle" fill="#06b6d4" font-size="16" font-weight="bold">Tech Gear Shop</text>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <button class="btn-view">Преглед →</button>
-                    </div>
-                </div>
-                <h3 class="portfolio-title">Tech Gear Shop</h3>
-                <p class="portfolio-category">Онлайн Магазин</p>
-                <p class="portfolio-description">Премиум онлайн магазин за технически продукти с разширени филтри и препоръки.</p>
-                <div class="portfolio-tech">
-                    <span class="tech">Shopify</span>
-                    <span class="tech">Liquid</span>
-                    <span class="tech">JavaScript</span>
-                </div>
-            </div>
+            <button class="view-more-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                ВИЖ ВСИЧКИ ПРОЕКТИ
+            </button>
         </div>
     </section>
 
     <!-- Reviews Section -->
     <section id="reviews" class="reviews">
-        <div class="section-header">
-            <h2 class="section-title">Отзиви на клиенти</h2>
-            <p class="section-subtitle">Какво казват хората, които са работили със мен</p>
-        </div>
-
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">А.М.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Александър Миланов</h4>
-                        <p class="review-role">Собственик на Minecraft сървър</p>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Митко направи точно това, което обещаде - бърз, качествен и професионален сайт за моя сървър. Играчите го обичат, а администрирането е лесно. Силно препоръчвам!"
-                </p>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">КАКВО КАЗВАТ КЛИЕНТИТЕ</h2>
             </div>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">В.К.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Виктория Косарева</h4>
-                        <p class="review-role">Основател на онлайн магазин</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Страхотна работа! Сайтът на WinlineWorld стана звезда сред играчите. Препоръчвам топ!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">И.П.</div>
+                        <div class="reviewer-info">
+                            <strong>Иван П.</strong>
+                            <small>WinlineWorld</small>
+                        </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Нямам опит с уеб развивка, но Митко го обясни всичко просто и направи магазина точно както исках. Продажбите растат откакто е готово. Много е отзивчив на промените."
-                </p>
-            </div>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">П.Т.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Петър Томов</h4>
-                        <p class="review-role">IT мениджър</p>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Магазинът работи перфектно, Stripe интеграцията е безпроблемна. Благодарения!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">Г.И.</div>
+                        <div class="reviewer-info">
+                            <strong>Георги И.</strong>
+                            <small>LertWorld</small>
+                        </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Кодът е чист, документиран и поддържаем. Как не съществуваше толкова време е мистерия. Интеграцията беше безпроблемна. Брав!"
-                </p>
-            </div>
 
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">Е.Г.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Елена Георгиева</h4>
-                        <p class="review-role">Мениджър на Discord сървър</p>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Бизнесният сайт е качествен, быстър и красив. Получавам много клиенти през него!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">А.К.</div>
+                        <div class="reviewer-info">
+                            <strong>Алекс К.</strong>
+                            <small>SugarSMP</small>
+                        </div>
                     </div>
                 </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Сайтът е красив, функционален и членовете на сървъра го обожават. Интеграцията със Discord работи без грешки. Благодарени!"
-                </p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">М.З.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Миле Золотов</h4>
-                        <p class="review-role">Собственик на SPA</p>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Бизнесният сайт е като наше съкровище сега. Google мапи работят идеално, резервациите са автоматични. ROI е невероятен!"
-                </p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">Д.М.</div>
-                    <div class="review-info">
-                        <h4 class="review-name">Даниела Маркова</h4>
-                        <p class="review-role">HR мениджър</p>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="review-text">
-                    "Администраторският панел е толкова лесен за използване, че дори моят босс може да го ползва без обучение. Благодарение на добрия дизайн и документацията!"
-                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="section-header">
-            <h2 class="section-title">Свържи се със мен</h2>
-            <p class="section-subtitle">Готов съм да превъртя твоята идея в реалност</p>
-        </div>
-
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3 class="contact-title">Начини за контакт</h3>
-                <p class="contact-description">Изберете първи начин, който ви е удобен, и азательно ще ви отговоря в рамките на 24 часа.</p>
-
-                <div class="contact-methods">
-                    <a href="https://discord.com" class="contact-method" target="_blank" rel="noopener noreferrer">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M8 12l4 4 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="method-info">
-                            <h4 class="method-title">Discord</h4>
-                            <p class="method-desc">MitkoSells#5924</p>
-                        </div>
-                        <svg class="method-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-
-                    <a href="mailto:contact@mitko.dev" class="contact-method">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                                <path d="M2 6l10 7 10-7"/>
-                            </svg>
-                        </div>
-                        <div class="method-info">
-                            <h4 class="method-title">Email</h4>
-                            <p class="method-desc">contact@mitko.dev</p>
-                        </div>
-                        <svg class="method-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-
-                    <a href="https://tiktok.com" class="contact-method" target="_blank" rel="noopener noreferrer">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                                <path d="M12 7v10M9 14c0 1.66 1.34 3 3 3s3-1.34 3-3"/>
-                            </svg>
-                        </div>
-                        <div class="method-info">
-                            <h4 class="method-title">TikTok</h4>
-                            <p class="method-desc">@mitko_sells</p>
-                        </div>
-                        <svg class="method-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">СВЪРЖИ СЕ СЪС МЕН</h2>
+                <p class="section-subtitle">Готов съм да превъртя твоята идея в реалност</p>
             </div>
 
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label for="name" class="form-label">Вашето име</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Иван Петров" required>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Начини за контакт</h3>
+                    <p>Изпрати ми съобщение и ще ти отговоря в рамките на 24 часа.</p>
+                    
+                    <a href="mailto:mitko@prositedev.bg" class="contact-method">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p>mitko@prositedev.bg</p>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="form-group">
-                    <label for="email" class="form-label">Email адрес</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="ivan@example.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="project" class="form-label">Тип на проекта</label>
-                    <select id="project" name="project" class="form-input" required>
-                        <option value="">Избери вид проект</option>
-                        <option value="minecraft">Minecraft сървър сайт</option>
-                        <option value="ecommerce">Онлайн магазин</option>
-                        <option value="discord">Discord/Общностен сайт</option>
-                        <option value="panel">Администраторски панел</option>
-                        <option value="business">Бизнес сайт</option>
-                        <option value="custom">Персонализирана система</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message" class="form-label">Описание на проекта</label>
-                    <textarea id="message" name="message" class="form-input form-textarea" placeholder="Кажи ми какво искаш..." rows="5" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="budget" class="form-label">Примерен бюджет (BGN)</label>
-                    <input type="number" id="budget" name="budget" class="form-input" placeholder="500" min="100">
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-submit">
-                    <span>Изпрати запитване</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M2 10l7-7m0 0l7 7m-7-7v14"/>
-                    </svg>
-                </button>
-
-                <p class="form-note">*Отговарям на всички запитвания в рамките на 24 часа</p>
-            </form>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Твоето име" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Твоята имейл" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Твоето съобщение" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ИЗПРАТИ СЪОБЩЕНИЕ</button>
+                </form>
+            </div>
         </div>
     </section>
 
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeCheckout()">&times;</button>
+            <h2>Поръчай сайт</h2>
+            <div id="checkout-container">
+                <form id="payment-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Твоето име" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Твоята имейл" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Телефон" required>
+                    </div>
+                    <div id="card-element"></div>
+                    <button type="submit" class="btn btn-primary">Плати с Stripe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Link (Hidden via CSS) -->
+    <div id="adminAccess" style="display: none;"></div>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-logo">Продавателникът</h3>
-                <p class="footer-description">Професионални уеб услуги със фокус на качество, скорост и резултати.</p>
-                <div class="footer-social">
-                    <a href="#" class="social-link">Discord</a>
-                    <a href="#" class="social-link">Email</a>
-                    <a href="#" class="social-link">TikTok</a>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Logo">
+                    <div>
+                        <strong>ПРОДАВАТЕЛНИКЪТ</strong>
+                        <small>НА МИТКО</small>
+                    </div>
                 </div>
+                <p>Професионални уеб решения и функционалност.</p>
             </div>
 
-            <div class="footer-section">
-                <h4 class="footer-title">Навигация</h4>
-                <ul class="footer-links">
+            <div class="footer-column">
+                <h4>НАВИГАЦИЯ</h4>
+                <ul>
                     <li><a href="#hero">Начало</a></li>
                     <li><a href="#about">За мен</a></li>
                     <li><a href="#services">Услуги</a></li>
@@ -911,29 +476,21 @@
                 </ul>
             </div>
 
-            <div class="footer-section">
-                <h4 class="footer-title">Услуги</h4>
-                <ul class="footer-links">
-                    <li><a href="#services">Minecraft сайтове</a></li>
-                    <li><a href="#services">Онлайн магазини</a></li>
-                    <li><a href="#services">Discord сайтове</a></li>
-                    <li><a href="#services">Кастомни системи</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4 class="footer-title">Правни</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Условия на ползване</a></li>
-                    <li><a href="#">Политика на поверителност</a></li>
-                    <li><a href="#">Политика на бисквитките</a></li>
-                </ul>
+            <div class="footer-column">
+                <h4>ПРИЕМАНЕ НА ПЛАЩАНИЯ</h4>
+                <p>Осигурени плащания през</p>
+                <div class="payment-methods">
+                    <span class="stripe-badge">Stripe</span>
+                    <span class="visa-badge">VISA</span>
+                    <span class="mc-badge">Mastercard</span>
+                    <span class="apple-badge">Apple Pay</span>
+                    <span class="google-badge">Google Pay</span>
+                </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p class="copyright">© 2024 Продавателникът на Митко. Всички права запазени.</p>
-            <p class="footer-credit">Разработен с <span class="heart">♥</span> от Митко Владимиров</p>
+            <p>© 2026 Продавателникът на Митко. Всички права запазени.</p>
         </div>
     </footer>
 

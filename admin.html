@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Продавателникът На Митко</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loginScreen" class="login-screen active">
+        <div class="login-container">
+            <h1>Admin Panel</h1>
+            <p>Продавателникът на Митко</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Администраторска парола" required>
+                </div>
+                <button type="submit" class="login-btn">ВЛЕЗ</button>
+            </form>
+
+            <p class="hint">Парола: demo123</p>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel">
+        <nav class="admin-nav">
+            <div class="nav-brand">
+                <strong>Admin Panel</strong>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active" onclick="switchTab('dashboard')">Начало</a></li>
+                <li><a href="#orders" class="nav-link" onclick="switchTab('orders')">Поръчки</a></li>
+                <li><a href="#messages" class="nav-link" onclick="switchTab('messages')">Съобщения</a></li>
+                <li><a href="#stats" class="nav-link" onclick="switchTab('stats')">Статистика</a></li>
+            </ul>
+            <button class="logout-btn" onclick="logout()">ИЗЛЕЗ</button>
+        </nav>
+
+        <div class="admin-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <h2>Начало</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Общо поръчки</div>
+                        <div class="stat-number" id="totalOrders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Общо приходи</div>
+                        <div class="stat-number" id="totalRevenue">0€</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Неразгледани съобщения</div>
+                        <div class="stat-number" id="unreadMessages">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Завършени проекти</div>
+                        <div class="stat-number" id="completedProjects">50+</div>
+                    </div>
+                </div>
+
+                <div class="recent-section">
+                    <h3>Последни поръчки</h3>
+                    <div id="recentOrders" class="orders-list"></div>
+                </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="orders" class="tab-content">
+                <h2>Управление на поръчки</h2>
+                <div id="ordersList" class="orders-list"></div>
+            </div>
+
+            <!-- Messages Tab -->
+            <div id="messages" class="tab-content">
+                <h2>Съобщения</h2>
+                <div id="messagesList" class="messages-list"></div>
+            </div>
+
+            <!-- Stats Tab -->
+            <div id="stats" class="tab-content">
+                <h2>Статистика</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h3>Разпределение по услуги</h3>
+                        <div id="serviceStats"></div>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Статус на поръчки</h3>
+                        <div id="statusStats"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
